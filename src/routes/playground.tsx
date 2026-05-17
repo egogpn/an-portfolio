@@ -50,21 +50,23 @@ function Playground() {
           <div className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground mb-5">
             SKETCHBOOK / ONGOING
           </div>
-          <h1 className="font-display font-black tracking-[-0.045em] leading-[0.85] text-[16vw] md:text-[11vw]">
-            {Array.from("PLAYGROUND.").map((ch, i) => (
-              <motion.span
-                key={i}
-                className="inline-block"
-                whileHover={{
-                  y: -14,
-                  rotate: i % 2 === 0 ? -6 : 6,
-                  color: ["#1E63FF", "#FF4D1F", "#1FB988", "#FFC400", "#E85D8B"][i % 5],
-                }}
-                transition={{ type: "spring", stiffness: 280, damping: 12 }}
-              >
-                {ch === " " ? "\u00A0" : ch}
-              </motion.span>
-            ))}
+          <h1 className="font-display font-black tracking-[-0.06em] md:tracking-[-0.045em] leading-[0.85] text-[clamp(38px,13vw,160px)] md:text-[11vw]">
+            <span className="inline-flex flex-nowrap">
+              {Array.from("PLAYGROUND.").map((ch, i) => (
+                <motion.span
+                  key={i}
+                  className="inline-block shrink-0"
+                  whileHover={{
+                    y: -14,
+                    rotate: i % 2 === 0 ? -6 : 6,
+                    color: ["#1E63FF", "#FF4D1F", "#1FB988", "#FFC400", "#E85D8B"][i % 5],
+                  }}
+                  transition={{ type: "spring", stiffness: 280, damping: 12 }}
+                >
+                  {ch === " " ? "\u00A0" : ch}
+                </motion.span>
+              ))}
+            </span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg md:text-xl text-foreground/80">
             A loose archive of unfinished, in-progress and never-for-clients work — type, posters, color tests and small motion loops.
