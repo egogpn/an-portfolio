@@ -1,14 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {
-  Outlet,
-  Link,
-  createRootRouteWithContext,
-  useRouter,
-  HeadContent,
-  Scripts,
-} from "@tanstack/react-router";
-
-import appCss from "../styles.css?url";
+import { Outlet, Link, createRootRouteWithContext, useRouter } from "@tanstack/react-router";
 
 function NotFoundComponent() {
   return (
@@ -68,50 +59,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ANNIE - Visual Designer" },
-      { name: "description", content: "Brangin & Design" },
-      { name: "author", content: "ANNIE" },
-      { property: "og:title", content: "ANNIE - Visual Designer" },
-      { property: "og:description", content: "Brangin & Design" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "ANNIE - Visual Designer" },
-      { name: "twitter:description", content: "Brangin & Design" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f76dfb47-92e7-4303-a54e-36003314864c/id-preview-a9f8ff27--e620b11d-1b0d-46c2-8d2b-1f93a6b6a7c2.lovable.app-1779033496816.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f76dfb47-92e7-4303-a54e-36003314864c/id-preview-a9f8ff27--e620b11d-1b0d-46c2-8d2b-1f93a6b6a7c2.lovable.app-1779033496816.png" },
-    ],
-    links: [
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
