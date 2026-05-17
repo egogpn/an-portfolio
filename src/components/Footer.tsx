@@ -6,8 +6,8 @@ export function Footer() {
         className="h-3"
         style={{
           backgroundImage:
-            "radial-gradient(circle, #0E0E0E 1.5px, transparent 1.6px)",
-          backgroundSize: "12px 12px",
+            "repeating-linear-gradient(90deg, #0E0E0E 0 10px, transparent 10px 20px)",
+          backgroundSize: "20px 2px",
           backgroundPosition: "0 50%",
           backgroundRepeat: "repeat-x",
         }}
